@@ -40,6 +40,10 @@ public class RecruiterProfile {
         this.profilePhoto = profilePhoto;
     }
 
+    public RecruiterProfile() {
+
+    }
+
     public int getUserAccountId() {
         return userAccountId;
     }
@@ -112,6 +116,11 @@ public class RecruiterProfile {
         this.profilePhoto = profilePhoto;
     }
 
+    @Transient
+    public String getPhotosImagePath(){
+        if (profilePhoto==null) return null;
+        return "/photos/recruiter/"+userAccountId+"/"+profilePhoto;
+    }
     @Override
     public String toString() {
         return "RecruiterProfile{" +

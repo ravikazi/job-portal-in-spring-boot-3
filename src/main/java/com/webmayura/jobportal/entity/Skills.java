@@ -13,7 +13,7 @@ public class Skills {
     private String experienceLevel;
     private String yearsOfExperience;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "job_seeker_profile")
     private JobSeekerProfile jobSeekerProfile;
 
