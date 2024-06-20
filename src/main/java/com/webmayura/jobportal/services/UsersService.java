@@ -57,9 +57,17 @@ public class UsersService {
                 RecruiterProfile recruiterProfile = recruiterProfileRepository.findById(userId).orElse(new RecruiterProfile());
                 return recruiterProfile;
             }else{
-               JobSeekerProfile jobSeekerProfile = jobSeekerProfileRepository.findById(userId).orElse(new JobSeekerProfile());
-               return jobSeekerProfile;
+                return jobSeekerProfileRepository.findById(userId).orElse(new JobSeekerProfile());
             }
+        }
+        return null;
+    }
+
+    public Users getCurrentUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!(authentication instanceof AnonymousAuthenticationToken)){
+            String username=authentication.getName();
+            return usersRepository.findByEmail(username).orElseThrow(()->new UsernameNotFoundException("Could not find user"));
         }
         return null;
     }
