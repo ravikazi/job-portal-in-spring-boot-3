@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
     <meta charset="UTF-8"/>
     <title>Dashboard</title>
@@ -20,7 +20,7 @@
 <body>
 <header class="navbar navbar-expand-lg navbar-dark">
     <label class="mt-2 ms-5 font-weight-bold h5"
-    ><a th:href="@{/dashboard/}">hotdevjobs</a
+    ><a th:href="@{/dashboard/}">Webmayurajobs</a
     ><span class="logo_com font-weight-bold h5" style="color: white">
           .com</span
     ></label
@@ -71,6 +71,7 @@
             </li>
 
         </ul>
+
         <img
                 class="rounded-circle me-3"
                 height="50px"
@@ -117,20 +118,17 @@
                                             class="title-span"
                                             sec:authorize="hasAuthority('Recruiter')"
                                             th:text="'('+ @{${jobPost.totalCandidates}}+' Candidates Applied)'"
-                                    >(xx candidates applied)</span
-                                    >
+                                    >(xx candidates applied)</span>
                                     <span
                                             class="title-span"
                                             sec:authorize="hasAuthority('Job Seeker')"
                                             th:if="${jobPost.isActive == true}"
-                                    >(Applied)</span
-                                    >
+                                    >(Applied)</span>
                                     <span
                                             class="title-span"
                                             sec:authorize="hasAuthority('Job Seeker')"
                                             th:if="${jobPost.isSaved == true}"
-                                    >(Saved)</span
-                                    >
+                                    >(Saved)</span>
                                 </label>
                             </div>
                             <div class="col-md-4 text-center">
