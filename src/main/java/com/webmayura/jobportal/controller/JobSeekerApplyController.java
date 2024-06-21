@@ -75,7 +75,7 @@ public class JobSeekerApplyController {
                     }
 
                     model.addAttribute("alreadyApplied",exists);
-                    model.addAttribute("alreadSaved",saved);
+                    model.addAttribute("alreadySaved",saved);
                }
             }
         }
